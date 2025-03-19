@@ -4,7 +4,7 @@
 OPS445 Assignment 1 - Winter 2025
 Program: assignment1.py 
 Author: svchandran
-The python code in this file (a1_[Student_id].py) is original work written by
+The python code in this file (a1_svchandran.py) is original work written by
 svchandran. No code in this file is copied from any other source
 except those provided by the course instructor, including any person,
 textbook, or on-line resource. I have not shared this python script
@@ -45,7 +45,7 @@ def after(date: str) -> str:
  
     Return the date for the next day of the given date in YYYY-MM-DD format.
     This function takes care of the number of days in February for leap year.
-    This function has been tested to work for year after 1582
+    As far I did the research, it will work after years 1582
     '''
     str_year, str_month, str_day = date.split('-')
     year = int(str_year)
@@ -90,7 +90,7 @@ def leap_year(year: int) -> bool:
  
  
 def valid_date(date: str) -> bool:
-    "check validity of date and return True if valid"
+    "check validity of date and return True if its valid"
     try:
         datetime.strptime(date, "%Y-%m-%d")
         return True
@@ -103,11 +103,8 @@ def day_count(start_date: str, stop_date: str) -> int:
     count = 0
     current_date = start_date
     while True:
-        # Parse the current date into year, month, day integers
         y, m, d = map(int, current_date.split('-'))
-        # Call the provided day_of_week() function
         dow = day_of_week(y, m, d)
-        # Count Saturday ('sat') and Sunday ('sun')
         if dow == "sat" or dow == "sun":
             count += 1
         if current_date == stop_date:
